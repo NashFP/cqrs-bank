@@ -10,10 +10,14 @@ more intelligently than “last guy wins”. We can also define varied service l
 ## Materials on CQRS
 
 * Greg Young's "[CQRS, Task Based UIs, Event Sourcing agh!](http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/)"
-* Ben Smith's "Building a CQRS/ES web application in Elixir using Phoenix" ([blog](https://10consulting.com/2017/01/04/building-a-cqrs-web-application-in-elixir-using-phoenix/))
-* "[A Case Study of the Variability Consequences of the CQRS
-Pattern in Online Business Software](https://slingerjansen.files.wordpress.com/2009/04/20-5.pdf)"
+* Ben Smith's "Building a CQRS/ES web application in Elixir using Phoenix" ([blog](https://10cons
 * Bryan Hunter's "CQRS with Erlang" ([code](https://github.com/bryanhunter/cqrs-with-erlang/tree/ndc-oslo)) ([video](https://vimeo.com/97318824))
+ulting.com/2017/01/04/building-a-cqrs-web-application-in-elixir-using-phoenix/))
+* "[A Case Study of the Variability Consequences of the CQRS
+Pattern in Online Business Software](https://slingerjansen.files.wordpress.com/2009/04/20-5.pdf)" This whitepaper is the source of the excellent diagram below:
+
+![alt text](./assets/cqrs-diagram.png "CQRS Diagram")
+
 
 ## The challlenge
 

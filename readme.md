@@ -23,11 +23,17 @@ Greg Young's "[CQRS, Task Based UIs, Event Sourcing agh!](http://codebetter.com/
 * One or more event handlers will respond to an event and update read-side projections.
 * The task-based UI will reload to show changes to the projections.
 
+*Bonus: Event sourcing*
+In typical CRUD application only the latest state of an aggregate is stored. With event sourcing, we store each individual 
+event that was applied to the aggregate. With event sourcing load an aggregate by playing back the events that were 
+previously applied to the aggregate. 
+
+
 ### Commands
 
-* create_bank_account(accountId:int, accountHolder:string) -> ack
+* create_bank_account(accountId:int, accountHolder:string, pin:int) -> ack
 * deposit_money_into_bank_account(accountId:int, amount:int) -> ack 
-* withdraw_money_from_bank_account(accountId:int, amount:int) -> ack
+* withdraw_money_from_bank_account(accountId:int, amount:int, pin:int) -> ack
 
 ### Queries
 
@@ -40,4 +46,5 @@ Greg Young's "[CQRS, Task Based UIs, Event Sourcing agh!](http://codebetter.com/
 * bank_account_created{accountId:int, accountHolder:string}
 * money_deposited_into_bank_account{accountId:int, amount:int}
 * money_withdrawn_from_bank_account{accountId:int, amount:int}
+* invalid_pin{accountId:int, amount_requested:int}
 * account_overdrawn{accountId:int, balance:int, amount_requested:int}

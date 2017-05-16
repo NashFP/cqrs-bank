@@ -9,8 +9,7 @@ more intelligently than “last guy wins”. We can also define varied service l
 
 ## Materials on CQRS
 
-Greg Young's "CQRS, Task Based UIs, Event Sourcing agh!"
-http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/
+Greg Young's "[CQRS, Task Based UIs, Event Sourcing agh!](http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/)"
 
 ## The challlenge
 

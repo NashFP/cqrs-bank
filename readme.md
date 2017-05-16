@@ -32,7 +32,7 @@ Greg Young's "[CQRS, Task Based UIs, Event Sourcing agh!](http://codebetter.com/
 ### Queries
 
 * check_balance(accountId:int) -> int
-* get_account_list() -> list<{int, string}> 
+* get_account_list() -> list<{accountId:int, accountHolder:string}> 
 * get_total_deposits() -> int
 
 ### Events

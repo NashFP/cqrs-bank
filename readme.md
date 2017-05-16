@@ -9,7 +9,9 @@ more intelligently than “last guy wins”. We can also define varied service l
 
 ## Materials on CQRS
 
-Greg Young's "[CQRS, Task Based UIs, Event Sourcing agh!](http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/)"
+* Greg Young's "[CQRS, Task Based UIs, Event Sourcing agh!](http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/)"
+* Ben Smith's "Building a CQRS/ES web application in Elixir using Phoenix" ([blog](https://10consulting.com/2017/01/04/building-a-cqrs-web-application-in-elixir-using-phoenix/))
+* Bryan Hunter's "CQRS with Erlang" ([code](https://github.com/bryanhunter/cqrs-with-erlang/tree/ndc-oslo)) ([video](https://vimeo.com/97318824))
 
 ## The challlenge
 
@@ -48,3 +50,12 @@ previously applied to the aggregate.
 * money_withdrawn_from_bank_account{accountId:int, amount:int}
 * invalid_pin{accountId:int, amount_requested:int}
 * account_overdrawn{accountId:int, balance:int, amount_requested:int}
+
+## Write your own
+
+Join the fun! Add a directory to this repo containing your code.
+
+If you don't already have the right permissions to push to this repo, file an issue! We'll hook you up.
+
+By convention, we use directory names that tell who wrote the code and what language it's in, separated by a `+`. For example: `bryan_hunter+elixir`.
+

@@ -10,6 +10,7 @@ defmodule CqrsBank.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
+       supervisor(Registry, [:unique, :account_to_pid_registry]),
       # Starts a worker by calling: CqrsBank.Worker.start_link(arg1, arg2, arg3)
       # worker(CqrsBank.Worker, [arg1, arg2, arg3]),
     ]

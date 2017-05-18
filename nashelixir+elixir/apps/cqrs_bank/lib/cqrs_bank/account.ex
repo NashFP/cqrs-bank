@@ -5,23 +5,30 @@ defmodule CqrsBank.Account do
     alias CqrsBank.Events.AccountCreated
     alias CqrsBank.Events.MoneyDeposited
 
+    @moduledoc """
+    The Account aggregate root
+    """
+
     defstruct [account_id: nil, account_holder: "", pin: nil, balance: 0, changes: []]
 
     def create_bank_account(account_id, account_holder, pin) do
         state = %Account{account_id: account_id}
         registration = via_tuple(account_id)
         GenServer.start_link(__MODULE__, state, name: registration)
-        via_tuple(account_id)
+        account_id 
+        |> via_tuple
         |> GenServer.call({:create_account, account_id, account_holder, pin})
     end
 
     def debug(account_id) do
-        via_tuple(account_id)
+        account_id
+        |> via_tuple
         |> GenServer.call(:debug)
     end
 
     def deposit_money_into_bank_account(account_id, amount) do
-        via_tuple(account_id)
+        account_id
+        |> via_tuple
         |> GenServer.call({:deposit, account_id, amount})
     end
 
@@ -42,12 +49,12 @@ defmodule CqrsBank.Account do
     end
     
     def handle_call(:debug, _from, state) do
-        Logger.info "State: #{inspect state}"
+        Logger.info fn -> "State: #{inspect state}" end
         {:reply, :ack, state}
     end
     
     defp apply_new_event(%AccountCreated{} = evt, state) do
-        Logger.info "Publish #{inspect evt}"         
+        Logger.info fn -> "Publish #{inspect evt}" end
         combined_changes = [evt | state.changes]
         %Account{state | account_holder: evt.account_holder, 
                          pin: evt.pin,
@@ -56,7 +63,7 @@ defmodule CqrsBank.Account do
     end
     
     defp apply_new_event(%MoneyDeposited{} = evt, state) do
-        Logger.info "Publish #{inspect evt}"         
+        Logger.info fn -> "Publish #{inspect evt}" end
         new_amount = state.balance + evt.amount
         combined_changes = [evt | state.changes]
         %Account{state | balance: new_amount,

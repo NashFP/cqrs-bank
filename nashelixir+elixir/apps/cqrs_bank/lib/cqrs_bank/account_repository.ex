@@ -1,8 +1,7 @@
 defmodule CqrsBank.AccountRepository do
-    use GenServer
-
-    def start_link() do
-    end
+    @moduledoc """
+    The Account repository
+    """
 
     def get(account_id) do
         case Registry.lookup(:account_to_pid_registry, account_id) do
